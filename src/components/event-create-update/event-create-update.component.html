@@ -1,0 +1,92 @@
+<div>
+  <form [formGroup]="createUpdateFormGroup" (ngSubmit)="save()">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h1>Create Event</h1>
+      </div>
+    </div>
+
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="form-group" [ngClass]="{'has-error': ((createUpdateFormGroup.get('name').touched ||
+        createUpdateFormGroup.get('name').dirty) && createUpdateFormGroup.get('name').errors)}">
+          <label for="name" class="col-sm-2 control-label">Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="name" name="name" class="form-control" formControlName="name">
+            <span class="help-block" *ngIf="((createUpdateFormGroup.get('name').touched ||
+            createUpdateFormGroup.get('name').dirty) && createUpdateFormGroup.get('name').errors)">
+              <span *ngIf="createUpdateFormGroup.get('name').errors.required">
+                Name is required
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" [ngClass]="{'has-error': ((createUpdateFormGroup.get('location').touched ||
+          createUpdateFormGroup.get('location').dirty) && createUpdateFormGroup.get('location').errors)}">
+          <label for="location" class="col-sm-2 control-label">Location:</label>
+          <div class="col-sm-8">
+            <input type="text" id="location" name="location" class="form-control" formControlName="location">
+            <span class="help-block" *ngIf="((createUpdateFormGroup.get('location').touched ||
+              createUpdateFormGroup.get('location').dirty) && createUpdateFormGroup.get('location').errors)">
+              <span *ngIf="createUpdateFormGroup.get('location').errors.required">
+                Location is required
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" [ngClass]="{'has-error': ((createUpdateFormGroup.get('startDateTime').touched ||
+        createUpdateFormGroup.get('startDateTime').dirty) && createUpdateFormGroup.get('startDateTime').errors)}">
+          <label for="startDateTime" class="col-sm-2 control-label">Start Date Time:</label>
+          <div class="col-sm-8">
+            <ng2-flatpickr [config]="startDateTimeFlatPickrConf" formControlName="startDateTime" name="startDateTime"
+              id="startDateTime" class="form-control">
+            </ng2-flatpickr>
+            <span class="help-block" *ngIf="((createUpdateFormGroup.get('startDateTime').touched ||
+            createUpdateFormGroup.get('startDateTime').dirty) && createUpdateFormGroup.get('startDateTime').errors)">
+              <span *ngIf="createUpdateFormGroup.get('startDateTime').errors.required">
+                Start Date Time is required
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" [ngClass]="{'has-error': ((createUpdateFormGroup.get('endDateTime').touched ||
+        createUpdateFormGroup.get('endDateTime').dirty) && createUpdateFormGroup.get('endDateTime').errors)}">
+          <label for="endDateTime" class="col-sm-2 control-label">End Date Time:</label>
+          <div class="col-sm-8">
+            <ng2-flatpickr [config]="endDateTimeFlatPickrConf" formControlName="endDateTime" name="endDateTime" id="endDateTime"
+              class="form-control"></ng2-flatpickr>
+            <span class="help-block" *ngIf="((createUpdateFormGroup.get('endDateTime').touched ||
+            createUpdateFormGroup.get('endDateTime').dirty) && createUpdateFormGroup.get('endDateTime').errors)">
+              <span *ngIf="createUpdateFormGroup.get('endDateTime').errors.required">
+                End Date Time is required
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="panel-footer">
+      <input type="submit" value="Save" class="btn btn-primary">
+    </div>
+
+  </form>
+</div>

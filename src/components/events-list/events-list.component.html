@@ -1,3 +1,22 @@
-<p>
-  events-list works!
-</p>
+<a [routerLink]="['/event-create-update']">Create</a>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Start Date Time</th>
+            <th>End Date Time</th>
+            <th></th>
+        </tr>
+
+        <tr *ngFor="let event of eventsDTOs">
+            <td>{{event.name}}</td>
+            <td>{{event.location}}</td>
+            <td>{{event.startDateTime | date : 'fullDate'}}</td>
+            <td>{{event.endDateTime | date : 'fullDate'}}</td>
+            <td>
+                <a [routerLink]="['/event-create-update', event.id]">Update</a>
+            </td>
+        </tr>
+    </table>
+</div>

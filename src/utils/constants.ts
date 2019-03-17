@@ -4,4 +4,8 @@ export class Constants {
     private static domain: string = 'http://localhost:' + Constants.port + '/api/'
 
     public static readonly GENERATE_TOKEN_ENDPOINT: string = Constants.domain + 'Auth/GenerateToken';
+    public static readonly CREATE_EVENT_ENDPOINT: string = Constants.domain + 'Event/Create';
+    public static readonly UPDATE_EVENT_ENDPOINT: string = Constants.domain + 'Event/Edit';
+    public static readonly GET_MY_EVENTS_ENDPOINT: string = Constants.domain + 'Event/GetMyEvents';
+    public static readonly GET_EVENT_ENDPOINT: string = Constants.domain + 'Event/Get/';
 }

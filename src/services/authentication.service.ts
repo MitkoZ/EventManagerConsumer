@@ -25,11 +25,11 @@ export class AuthenticationService {
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }
 
-  public getToken(): TokenDTO {
+  public getToken(): String {
     let tokenDTO: TokenDTO = new TokenDTO();
     tokenDTO.token = localStorage.getItem("token");
 
-    return tokenDTO;
+    return tokenDTO.token;
   }
 
   public isExpired(): Boolean {
