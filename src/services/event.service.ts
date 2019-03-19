@@ -29,11 +29,11 @@ export class EventService {
   }
 
   public save(eventDTO: EventDTO): Observable<String> {
-    if (eventDTO.id) {
-      return this.updateEvent(eventDTO);
+    if (eventDTO.id == 0) {
+      return this.createEvent(eventDTO);
     }
     else {
-      return this.createEvent(eventDTO);
+      return this.updateEvent(eventDTO);
     }
   }
 

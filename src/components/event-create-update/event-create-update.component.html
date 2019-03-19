@@ -50,9 +50,13 @@
         createUpdateFormGroup.get('startDateTime').dirty) && createUpdateFormGroup.get('startDateTime').errors)}">
           <label for="startDateTime" class="col-sm-2 control-label">Start Date Time:</label>
           <div class="col-sm-8">
-            <ng2-flatpickr [config]="startDateTimeFlatPickrConf" formControlName="startDateTime" name="startDateTime"
-              id="startDateTime" class="form-control">
-            </ng2-flatpickr>
+
+            <input class="form-control" id="startDateTime" [owlDateTime]="startDateTime"
+              [owlDateTimeTrigger]="startDateTime" [min]='startDateTimePickerConfig.min' placeholder="Start Date Time"
+              formControlName="startDateTime">
+            <owl-date-time #startDateTime [firstDayOfWeek]='startDateTimePickerConfig.firstDayOfWeek'
+              [hour12Timer]='startDateTimePickerConfig.hour12Timer'></owl-date-time>
+
             <span class="help-block" *ngIf="((createUpdateFormGroup.get('startDateTime').touched ||
             createUpdateFormGroup.get('startDateTime').dirty) && createUpdateFormGroup.get('startDateTime').errors)">
               <span *ngIf="createUpdateFormGroup.get('startDateTime').errors.required">
@@ -70,8 +74,12 @@
         createUpdateFormGroup.get('endDateTime').dirty) && createUpdateFormGroup.get('endDateTime').errors)}">
           <label for="endDateTime" class="col-sm-2 control-label">End Date Time:</label>
           <div class="col-sm-8">
-            <ng2-flatpickr [config]="endDateTimeFlatPickrConf" formControlName="endDateTime" name="endDateTime" id="endDateTime"
-              class="form-control"></ng2-flatpickr>
+
+            <input class="form-control" id="endDateTime" [owlDateTime]="endDateTime" [owlDateTimeTrigger]="endDateTime"
+              [min]='endDateTimePickerConfig.min' placeholder="End Date Time" formControlName="endDateTime">
+            <owl-date-time #endDateTime [firstDayOfWeek]='endDateTimePickerConfig.firstDayOfWeek'
+              [hour12Timer]='endDateTimePickerConfig.hour12Timer'></owl-date-time>
+
             <span class="help-block" *ngIf="((createUpdateFormGroup.get('endDateTime').touched ||
             createUpdateFormGroup.get('endDateTime').dirty) && createUpdateFormGroup.get('endDateTime').errors)">
               <span *ngIf="createUpdateFormGroup.get('endDateTime').errors.required">
@@ -84,6 +92,7 @@
 
     </div>
 
+    <input type="hidden" formControlName="id" value="0">
     <div class="panel-footer">
       <input type="submit" value="Save" class="btn btn-primary">
     </div>

@@ -18,7 +18,8 @@ import { AuthInterceptor } from 'src/httpInterceptors/auth-interceptor';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { Ng2FlatpickrModule } from 'ng2-flatpickr';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { Ng2FlatpickrModule } from 'ng2-flatpickr';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({ 'positionClass': 'toast-top-center' }), // ToastrModule added
     ReactiveFormsModule,
-    Ng2FlatpickrModule
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [
     {
