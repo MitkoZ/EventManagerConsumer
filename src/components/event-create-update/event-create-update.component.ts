@@ -21,7 +21,7 @@ export class EventCreateUpdateComponent extends BaseComponent implements OnInit 
     hour12Timer: true
   };
 
-  public endDateTimePickerConfig = Object.assign({}, this.startDateTimePickerConfig);;
+  public endDateTimePickerConfig = Object.assign({}, this.startDateTimePickerConfig);
 
   constructor(toastr: ToastrService, private formBuilder: FormBuilder, private eventService: EventService, private route: ActivatedRoute) {
     super(toastr);

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
@@ -19,13 +19,16 @@ import { AuthInterceptor } from 'src/httpInterceptors/auth-interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { SimpleModalModule } from 'ngx-simple-modal';
+import { ConfirmModalComponent } from '../components/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     EventsListComponent,
-    EventCreateUpdateComponent
+    EventCreateUpdateComponent,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     ToastrModule.forRoot({ 'positionClass': 'toast-top-center' }), // ToastrModule added
     ReactiveFormsModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+    SimpleModalModule
   ],
   providers: [
     {
@@ -46,6 +50,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  entryComponents: [
+    ConfirmModalComponent
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

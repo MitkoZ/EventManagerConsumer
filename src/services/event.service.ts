@@ -28,6 +28,11 @@ export class EventService {
     return this.http.post<String>(Constants.CREATE_EVENT_ENDPOINT, eventDTO);
   }
 
+  public delete(id: Number): Observable<String> {
+    return this.http.delete<String>(Constants.DELETE_EVENT_ENDPOINT + id);
+  }
+
+
   public save(eventDTO: EventDTO): Observable<String> {
     if (eventDTO.id == 0) {
       return this.createEvent(eventDTO);

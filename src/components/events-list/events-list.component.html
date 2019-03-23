@@ -17,6 +17,9 @@
             <td>
                 <a [routerLink]="['/event-create-update', event.id]">Update</a>
             </td>
+            <td>
+                <a [routerLink] (click)="showConfirmation(event.name, event.id)">Delete</a>
+            </td>
         </tr>
     </table>
 </div>

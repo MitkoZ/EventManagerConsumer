@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'events-list', component: EventsListComponent },
   { path: 'event-create-update', component: EventCreateUpdateComponent },
-  { path: 'event-create-update/:id', component: EventCreateUpdateComponent }
+  { path: 'event-create-update/:id', component: EventCreateUpdateComponent },
 ];
 
 @NgModule({
