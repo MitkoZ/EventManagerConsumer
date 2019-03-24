@@ -5,6 +5,7 @@ import { LoginDTO } from 'src/DTOs/login-dto';
 import { TokenDTO } from 'src/DTOs/token-dto';
 import { Constants } from 'src/utils/constants';
 import * as moment from "moment";
+import { RegisterDTO } from 'src/DTOs/register-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class AuthenticationService {
 
   public login(loginDTO: LoginDTO): Observable<String> {
     return this.http.post<String>(Constants.GENERATE_TOKEN_ENDPOINT, loginDTO);
+  }
+
+  public register(registerDTO: RegisterDTO): Observable<String> {
+    return this.http.post<String>(Constants.REGISTER_ENDPOINT, registerDTO);
   }
 
   public saveToken(tokenDTO: TokenDTO): void {

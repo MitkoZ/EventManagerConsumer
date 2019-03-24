@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class EventsListComponent extends BaseComponent implements OnInit {
   public eventsDTOs: EventDTO[];
 
-  constructor(private toastService: ToastrService, private eventService: EventService, private simpleModalService: SimpleModalService) {
+  constructor(toastService: ToastrService, private eventService: EventService, private simpleModalService: SimpleModalService) {
     super(toastService);
   }
 

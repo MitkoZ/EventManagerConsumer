@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from "./../components/login/login.component"
-import { EventsListComponent } from './../components/events-list/events-list.component';
+import { EventsListComponent } from "./../components/events-list/events-list.component";
 import { EventCreateUpdateComponent } from './../components/event-create-update/event-create-update.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { ConfirmModalComponent } from '../components/confirm-modal/confirm-modal.component';
+import { RegisterComponent } from '../components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ConfirmModalComponent } from '../components/confirm-modal/confirm-modal
     LoginComponent,
     EventsListComponent,
     EventCreateUpdateComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

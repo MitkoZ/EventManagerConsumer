@@ -1,0 +1,84 @@
+<div>
+  <form [formGroup]="registerFormGroup" (ngSubmit)="register()">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h1>Register</h1>
+      </div>
+    </div>
+
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="form-group" [ngClass]="{'has-error': ((registerFormGroup.get('username').touched ||
+        registerFormGroup.get('username').dirty) && registerFormGroup.get('username').errors)}">
+          <label for="username" class="col-sm-2 control-label">Username:</label>
+          <div class="col-sm-8">
+            <input type="text" id="username" username="username" class="form-control" formControlName="username">
+            <span class="help-block" *ngIf="((registerFormGroup.get('username').touched ||
+            registerFormGroup.get('username').dirty) && registerFormGroup.get('username').errors)">
+              <span *ngIf="registerFormGroup.get('username').errors.required">
+                Username is required
+              </span>
+
+              <span *ngIf="registerFormGroup.get('username').errors.minlength">
+                Username min length is {{registerFormGroup.get('username').errors.minlength.requiredLength}}
+              </span>
+
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" [ngClass]="{'has-error': ((registerFormGroup.get('password').touched ||
+          registerFormGroup.get('password').dirty) && registerFormGroup.get('password').errors)}">
+          <label for="password" class="col-sm-2 control-label">Password:</label>
+          <div class="col-sm-8">
+            <input type="password" id="password" username="password" class="form-control" formControlName="password">
+            <span class="help-block" *ngIf="((registerFormGroup.get('password').touched ||
+              registerFormGroup.get('password').dirty) && registerFormGroup.get('password').errors)">
+
+              <span *ngIf="registerFormGroup.get('password').errors.required">
+                Password is required
+              </span>
+
+              <span *ngIf="registerFormGroup.get('password').errors.minlength">
+                Password min length is {{registerFormGroup.get('password').errors.minlength.requiredLength}}
+              </span>
+
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="form-group" [ngClass]="{'has-error': ((registerFormGroup.get('confirmPassword').touched ||
+          registerFormGroup.get('confirmPassword').dirty) && registerFormGroup.get('confirmPassword').errors)}">
+          <label for="confirmPassword" class="col-sm-2 control-label">Confirm Password:</label>
+          <div class="col-sm-8">
+            <input type="password" id="confirmPassword" username="confirmPassword" class="form-control"
+              formControlName="confirmPassword">
+            <span class="help-block" *ngIf="((registerFormGroup.get('confirmPassword').touched ||
+              registerFormGroup.get('confirmPassword').dirty) && registerFormGroup.get('confirmPassword').errors)">
+              <span *ngIf="registerFormGroup.get('confirmPassword').errors.required">
+                Confirm Password is required
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="panel-footer">
+        <input type="submit" value="Register" class="btn btn-primary">
+      </div>
+    </div>
+  </form>
+
+</div>

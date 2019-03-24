@@ -10,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 export abstract class BaseComponent implements OnInit {
 
-  constructor(private toastr: ToastrService) {
+  constructor(protected toastService: ToastrService) {
   }
 
   ngOnInit() {
@@ -18,23 +18,17 @@ export abstract class BaseComponent implements OnInit {
 
   private getFirstErrorMessage(httpErrorResponse: HttpErrorResponse): string {
     let errorObject = httpErrorResponse.error;
-
-    //// let errorsArray = httpErrorResponse['error']['errors']; //TODO: add validation for errors
     let errorKeys = Object.keys(errorObject);
     let firstErrorKey = errorKeys[0];
     let firstErrorMessage = errorObject[firstErrorKey][0];
     return firstErrorMessage;
-    // if (!httpErrorResponse.error[0]) {
-    //   return httpErrorResponse.error[0][0];
-    // }
-    //return firstErrorMessage;
   }
 
   protected showSuccess(message: string): void {
-    this.toastr.success(message);
+    this.toastService.success(message);
   }
 
   protected showError(httpErrorResponse: HttpErrorResponse): void {
-    this.toastr.error(this.getFirstErrorMessage(httpErrorResponse), httpErrorResponse.statusText);
+    this.toastService.error(this.getFirstErrorMessage(httpErrorResponse), httpErrorResponse.statusText);
   }
 }
