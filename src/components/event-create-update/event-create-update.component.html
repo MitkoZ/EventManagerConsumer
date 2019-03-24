@@ -3,7 +3,10 @@
 
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h1>Create Event</h1>
+        <h1 *ngIf="eventId.value == 0; else updateHeadingElseBlock">Create Event</h1>
+        <ng-template #updateHeadingElseBlock>
+          <h1>Update Event</h1>
+        </ng-template>
       </div>
     </div>
 
@@ -59,9 +62,11 @@
 
             <span class="help-block" *ngIf="((createUpdateFormGroup.get('startDateTime').touched ||
             createUpdateFormGroup.get('startDateTime').dirty) && createUpdateFormGroup.get('startDateTime').errors)">
+
               <span *ngIf="createUpdateFormGroup.get('startDateTime').errors.required">
                 Start Date Time is required
               </span>
+
             </span>
           </div>
         </div>
@@ -82,9 +87,15 @@
 
             <span class="help-block" *ngIf="((createUpdateFormGroup.get('endDateTime').touched ||
             createUpdateFormGroup.get('endDateTime').dirty) && createUpdateFormGroup.get('endDateTime').errors)">
+
               <span *ngIf="createUpdateFormGroup.get('endDateTime').errors.required">
                 End Date Time is required
               </span>
+
+              <span *ngIf="createUpdateFormGroup.get('endDateTime').errors.owlDateTimeMin">
+                End Date Time min is {{createUpdateFormGroup.get('endDateTime').errors.owlDateTimeMin.min}}
+              </span>
+
             </span>
           </div>
         </div>
@@ -92,7 +103,7 @@
 
     </div>
 
-    <input type="hidden" formControlName="id" value="0">
+    <input type="hidden" formControlName="id" value="0" #eventId>
     <div class="panel-footer">
       <input type="submit" value="Save" class="btn btn-primary">
     </div>

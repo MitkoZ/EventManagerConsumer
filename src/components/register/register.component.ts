@@ -4,7 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterDTO } from 'src/DTOs/register-dto';
 import { AuthenticationService } from 'src/services/authentication.service';
-import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-register',
@@ -27,25 +26,10 @@ export class RegisterComponent extends BaseComponent implements OnInit {
     }
     );
   }
-
- /**
-   * Marks all controls in a form group as touched
-   * @param formGroup - The form group to touch
-   */
-  private markFormGroupTouched(formGroup: FormGroup) {
-    (<any>Object).values(formGroup.controls).forEach(control => {
-      control.markAsTouched();
-
-      if (control.controls) {
-        this.markFormGroupTouched(control);
-      }
-    });
-  }
   
   public register(): void {
     if (!this.registerFormGroup.valid) {
       this.markFormGroupTouched(this.registerFormGroup);
-      debugger;
       return;
     }
 

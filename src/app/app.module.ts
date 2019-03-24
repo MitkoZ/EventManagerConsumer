@@ -22,6 +22,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { SimpleModalModule } from 'ngx-simple-modal';
 import { ConfirmModalComponent } from '../components/confirm-modal/confirm-modal.component';
 import { RegisterComponent } from '../components/register/register.component';
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { HomeComponent } from '../components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { RegisterComponent } from '../components/register/register.component';
     EventsListComponent,
     EventCreateUpdateComponent,
     ConfirmModalComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

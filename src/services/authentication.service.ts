@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { LoginDTO } from 'src/DTOs/login-dto';
 import { TokenDTO } from 'src/DTOs/token-dto';
 import { Constants } from 'src/utils/constants';
@@ -10,7 +10,9 @@ import { RegisterDTO } from 'src/DTOs/register-dto';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthenticationService {
+  public isTokenDeleted = new Subject<Boolean>();
   constructor(private http: HttpClient) {
 
   }
@@ -37,7 +39,7 @@ export class AuthenticationService {
     return tokenDTO.token;
   }
 
-  public isExpired(): Boolean {
+  public isTokenExpired(): Boolean {
     return moment().isAfter(this.getExpiration());
   }
 
@@ -45,5 +47,11 @@ export class AuthenticationService {
     const expiration = localStorage.getItem("expires_at");
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
+  }
+
+  public logout(): void {
+    localStorage.removeItem("token");
+    localStorage.removeItem("expires_at");
+    this.isTokenDeleted.next(true);
   }
 }

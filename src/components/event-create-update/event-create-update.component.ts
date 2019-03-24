@@ -73,13 +73,14 @@ export class EventCreateUpdateComponent extends BaseComponent implements OnInit 
 
   public save(): void {
     if (!this.createUpdateFormGroup.valid) {
+      this.markFormGroupTouched(this.createUpdateFormGroup);
       return;
     }
     debugger;
     let eventDTO: EventDTO = new EventDTO(this.createUpdateFormGroup.value);
 
     this.eventService.save(eventDTO).
-      subscribe(httpResponse =>
+      subscribe(() =>
         this.showSuccess('Event saved successfully'),
         httpErrorResponse => this.showError(httpErrorResponse));
   }
