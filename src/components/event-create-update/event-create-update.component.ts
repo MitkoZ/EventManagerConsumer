@@ -26,7 +26,6 @@ export class EventCreateUpdateComponent extends BaseComponent implements OnInit 
   constructor(toastr: ToastrService, private formBuilder: FormBuilder, private eventService: EventService, private route: ActivatedRoute) {
     super(toastr);
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    debugger;
     if (id != 0) { // an event with id exists in the database
       eventService.getEvent(id)
         .subscribe(x => this.setFields(x),
@@ -76,7 +75,6 @@ export class EventCreateUpdateComponent extends BaseComponent implements OnInit 
       this.markFormGroupTouched(this.createUpdateFormGroup);
       return;
     }
-    debugger;
     let eventDTO: EventDTO = new EventDTO(this.createUpdateFormGroup.value);
 
     this.eventService.save(eventDTO).
